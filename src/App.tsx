@@ -18,7 +18,7 @@ export const App: FC = () => {
   }, [debouncedValue]);
 
   return (
-    <div>
+    <div className="container">
       <span>Number of clicks: {debouncedValue}</span>
       <button onClick={handleOnlcick}>Increase number</button>
     </div>
