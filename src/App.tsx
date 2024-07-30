@@ -1,25 +1,25 @@
 import { FC, useEffect, useState } from 'react';
-import { useDebounce } from './hooks';
+import { useDebounce } from './hooks/useDebounce';
 import './style.css';
 
 export const App: FC = () => {
-  const [nbClick, setNbClick] = useState(0);
+  const [numberOfClick, setNumberOfClick] = useState(0);
 
-  const debouncedValue = useDebounce<number>(nbClick, 1000);
+  const debouncedValue = useDebounce<number>(numberOfClick, 1000);
 
   const handleOnlcick = () => {
-    setNbClick((nb) => nb + 1);
+    setNumberOfClick((nb) => nb + 1);
   };
 
   useEffect(() => {
-    console.log('send', nbClick);
+    // code to excute after the debaunce
+    // in this example were just testing with a console log
+    console.log('send', numberOfClick);
   }, [debouncedValue]);
 
   return (
     <div>
-      <span>Number of clicks: {nbClick}</span>
-      <br />
-      <br />
+      <span>Number of clicks: {debouncedValue}</span>
       <button onClick={handleOnlcick}>Increase number</button>
     </div>
   );
